@@ -65,6 +65,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
+        nss.i686 \
         nss-softokn \
         nss-softokn-freebl \
         nss-util \
@@ -454,7 +455,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         libXtst.i686 \
         libXScrnSaver.i686 \
         NetworkManager-libnm.i686 \
-        nss.i686 \
         pulseaudio-libs.i686 \
         libcurl.i686 \
         systemd-libs.i686 \
