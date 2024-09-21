@@ -319,10 +319,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         mesa-libEGL \
         mesa-vulkan-drivers \
         mesa-libGL \
-        nss \
-        nss-softokn \
-        nss-softokn-freebl \
-        nss-util \
         pipewire \
         pipewire-alsa \
         pipewire-gstreamer \
@@ -337,6 +333,14 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         bluez-cups \
         bluez-libs \
         xorg-x11-server-Xwayland && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
+        nss \
+        nss-softokn \
+        nss-softokn-freebl \
+        nss-util \
+        || true && \
     rpm-ostree install \
         mesa-va-drivers-freeworld \
         mesa-vdpau-drivers-freeworld.x86_64 \
