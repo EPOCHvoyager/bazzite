@@ -64,7 +64,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         || true && \
     rpm-ostree override replace \
     --experimental \
-    --from repo=updates \
+    --from repo=fedora \
         nss-softokn \
         nss-softokn-freebl \
         nss-util \
