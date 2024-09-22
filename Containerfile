@@ -456,6 +456,9 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         libXScrnSaver.i686 \
         NetworkManager-libnm.i686 \
         nss.i686 \
+        nss-softokn.i686 \
+        nss-softokn-freebl.i686 \
+        nss-util.i686 \
         pulseaudio-libs.i686 \
         libcurl.i686 \
         systemd-libs.i686 \
