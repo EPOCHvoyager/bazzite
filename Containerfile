@@ -65,6 +65,13 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree override replace \
     --experimental \
     --from repo=updates \
+        nss-softokn \
+        nss-softokn-freebl \
+        nss-util \
+        || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
         atk \
         at-spi2-atk \
         || true && \
@@ -304,7 +311,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
 
 # Install Valve's patched Mesa, Pipewire, Bluez, and Xwayland
 # Install patched switcheroo control with proper discrete GPU support
-# Avoid nss drift by using packages from multilib
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree override remove \
         mesa-va-drivers-freeworld && \
@@ -319,10 +325,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         mesa-libEGL \
         mesa-vulkan-drivers \
         mesa-libGL \
-        nss \
-        nss-softokn \
-        nss-softokn-freebl \
-        nss-util \
         pipewire \
         pipewire-alsa \
         pipewire-gstreamer \
